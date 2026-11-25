@@ -1,0 +1,125 @@
+
+@'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureTransfer | Server Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>🔐 SecureTransfer</h2>
+    <p class="side-label">SERVER MANAGEMENT</p>
+    <a class="active" href="/">Dashboard</a>
+    <a href="#files">File Management</a>
+    <a href="#activity">Server Information</a>
+
+    <div class="sidebar-footer">
+        <span class="online-dot"></span> Admin Panel
+        <small>Local Server</small>
+    </div>
+</div>
+
+<main class="main">
+
+    <header class="topbar">
+        <div>
+            <h1>Server Dashboard</h1>
+            <p>Monitor and manage your secure file transfer server.</p>
+        </div>
+        <div class="server-badge">  
+            <span class="online-dot"></span> Dashboard Online
+        </div>
+    </header>
+
+    <section class="welcome">
+        <div>
+            <p>SERVER ADMINISTRATION</p>
+            <h2>Welcome to your server control center</h2>
+            <span>Manage files and monitor your server storage.</span>
+        </div>
+        <div class="shield">🛡️</div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span>Total Files</span>
+            <h2 id="totalFiles">0</h2>
+            <small>Files stored on server</small>
+        </div>
+
+        <div class="stat-card">
+            <span>Storage Used</span>
+            <h2 id="storageUsed">0 MB</h2>
+            <small>Total file storage</small>
+        </div>
+
+        <div class="stat-card">
+            <span>Dashboard Status</span>
+            <h2 id="dashboardStatus">Online</h2>
+            <small>Admin interface</small>
+        </div>
+    </section>
+
+    <section class="panel" id="files">
+        <div class="panel-header">
+            <div>
+                <h2>Server File Management</h2>
+                <p>Files currently stored in server_files</p>
+            </div>
+            <button id="refreshBtn">↻ Refresh</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>File Size</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="fileTable">
+                    <tr>
+                        <td colspan="3">Loading files...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel" id="activity">
+        <h2>Server Information</h2>
+        <div class="info-grid">
+            <div>
+                <span>Protocol</span>
+                <strong>TCP + TLS</strong>
+            </div>
+            <div>
+                <span>Socket Port</span>
+                <strong>5000</strong>
+            </div>
+            <div>
+                <span>Admin Port</span>
+                <strong>8001</strong>
+            </div>
+            <div>
+                <span>Storage Directory</span>
+                <strong>server_files</strong>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        SecureTransfer Admin Dashboard | Laptop 1
+    </footer>
+
+</main>
+
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>
+'@ | Set-Content -Path .\templates\admin.html -Encoding utf8
